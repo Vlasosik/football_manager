@@ -6,7 +6,7 @@ This repository contains the backend code for the **Football Manager** applicati
 
 The API documentation is available in the Postman workspace. You can access and explore the available endpoints, their parameters, and request/response examples by following the link below:
 
-[Football Manager API - Postman Collection](https://football-manager.postman.co/workspace/My-Workspace~310b7bc8-42b2-490f-8c71-305247b43d8b/collection/30333714-8ccd52de-904c-4b08-a89b-b15069989cf2?action=share&creator=30333714&active-environment=30333714-50731677-4fd7-4b54-a58a-410b66a52568)
+[Football Manager API - Postman Collection](https://football-manager.postman.co/workspace/My-Workspace~310b7bc8-42b2-490f-8c71-305247b43d8b/collection/30333714-8ccd52de-904c-4b08-a89b-b15069989cf2)
 
 ## Project Setup
 
