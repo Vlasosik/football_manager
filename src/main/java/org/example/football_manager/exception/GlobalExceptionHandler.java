@@ -1,8 +1,10 @@
 package org.example.football_manager.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
-import org.example.football_manager.command.exception.NotCommandExistById;
-import org.example.football_manager.player.exception.NotPlayerExistById;
+import org.example.football_manager.command.exception.NotCommandExistByIdException;
+import org.example.football_manager.player.exception.NotPlayerExistByIdException;
+import org.example.football_manager.transfer.exception.InsufficientBalanceException;
+import org.example.football_manager.transfer.exception.NotTransferExistByIdException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -30,9 +32,9 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(errorResponse);
     }
 
-    @ExceptionHandler(NotCommandExistById.class)
+    @ExceptionHandler(NotCommandExistByIdException.class)
     public ResponseEntity<ErrorResponse> handleNotCommandExistById(
-            NotCommandExistById ex, HttpServletRequest request) {
+            NotCommandExistByIdException ex, HttpServletRequest request) {
         ErrorResponse errorResponse = buildErrorResponse(
                 HttpStatus.BAD_REQUEST,
                 Objects.requireNonNull(ex.getMessage()),
@@ -40,9 +42,29 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(errorResponse);
     }
 
-    @ExceptionHandler(NotPlayerExistById.class)
+    @ExceptionHandler(NotPlayerExistByIdException.class)
     public ResponseEntity<ErrorResponse> handleNotPlayerExistById(
-            NotPlayerExistById ex, HttpServletRequest request) {
+            NotPlayerExistByIdException ex, HttpServletRequest request) {
+        ErrorResponse errorResponse = buildErrorResponse(
+                HttpStatus.BAD_REQUEST,
+                Objects.requireNonNull(ex.getMessage()),
+                request.getRequestURI());
+        return ResponseEntity.badRequest().body(errorResponse);
+    }
+
+    @ExceptionHandler(InsufficientBalanceException.class)
+    public ResponseEntity<ErrorResponse> handleInsufficientBalance(
+            InsufficientBalanceException ex, HttpServletRequest request) {
+        ErrorResponse errorResponse = buildErrorResponse(
+                HttpStatus.BAD_REQUEST,
+                Objects.requireNonNull(ex.getMessage()),
+                request.getRequestURI());
+        return ResponseEntity.badRequest().body(errorResponse);
+    }
+
+    @ExceptionHandler(NotTransferExistByIdException.class)
+    public ResponseEntity<ErrorResponse> handleNotTransferExistById(
+            NotTransferExistByIdException ex, HttpServletRequest request) {
         ErrorResponse errorResponse = buildErrorResponse(
                 HttpStatus.BAD_REQUEST,
                 Objects.requireNonNull(ex.getMessage()),
