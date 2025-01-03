@@ -4,7 +4,6 @@ import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.football_manager.command.Command;
 import org.hibernate.validator.constraints.Range;
 
 import java.util.UUID;
