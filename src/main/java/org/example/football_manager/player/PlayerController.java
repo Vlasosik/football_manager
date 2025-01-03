@@ -28,7 +28,7 @@ public class PlayerController {
     }
 
     @GetMapping
-    public ResponseEntity<Player> readById(@RequestParam UUID id) {
+    public ResponseEntity<PlayerDTO> readById(@RequestParam UUID id) {
         return ResponseEntity.ok(playerService.readById(id));
     }
 

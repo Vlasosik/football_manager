@@ -28,7 +28,7 @@ public class CommandController {
     }
 
     @GetMapping
-    public ResponseEntity<Command> readById(@RequestParam UUID id) {
+    public ResponseEntity<CommandDTO> readById(@RequestParam UUID id) {
         return ResponseEntity.ok(commandService.readById(id));
     }
 
