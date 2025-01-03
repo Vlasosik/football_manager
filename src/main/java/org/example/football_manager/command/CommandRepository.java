@@ -7,4 +7,5 @@ import java.util.UUID;
 
 @Repository
 public interface CommandRepository extends JpaRepository<Command, UUID> {
+    boolean existsByName(String name);
 }
