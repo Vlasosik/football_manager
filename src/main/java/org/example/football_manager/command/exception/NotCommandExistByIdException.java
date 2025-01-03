@@ -1,12 +1,13 @@
 package org.example.football_manager.command.exception;
 
-public class NotCommandExistById extends RuntimeException {
+public class NotCommandExistByIdException extends RuntimeException {
     private static final String MSG = "No such identifier was found in the command!";
-    public NotCommandExistById(String message) {
+
+    public NotCommandExistByIdException(String message) {
         super(message);
     }
 
-    public NotCommandExistById() {
+    public NotCommandExistByIdException() {
         super(MSG);
     }
 }
