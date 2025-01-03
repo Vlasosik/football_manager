@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.example.football_manager.command.CommandBalanceUpdater;
 import org.example.football_manager.command.CommandService;
 import org.example.football_manager.command.dto.CommandDTO;
-import org.example.football_manager.command.exception.NotCommandExistByIdException;
 import org.example.football_manager.player.PlayerCommandUpdater;
 import org.example.football_manager.player.PlayerService;
 import org.example.football_manager.player.dto.PlayerDTO;
@@ -55,7 +54,7 @@ public class TransferService {
 
     public void update(TransferDTO transferDTO) {
         transferRepository.findById(transferDTO.getId())
-                .orElseThrow(NotCommandExistByIdException::new);
+                .orElseThrow(NotTransferExistByIdException::new);
         transferRepository.save(TransferMapper.toEntity(transferDTO));
     }
 
