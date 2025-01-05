@@ -36,7 +36,7 @@ public class PlayerController {
     public ResponseEntity<PlayerResponse> update(@Valid @RequestBody PlayerDTO playerDTO) {
         playerService.update(playerDTO);
         PlayerResponse response = PlayerResponse.builder()
-                .message("Command successfully update!")
+                .message("Player successfully update!")
                 .statusCode(HttpStatus.CREATED.value())
                 .build();
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
@@ -46,7 +46,7 @@ public class PlayerController {
     public ResponseEntity<PlayerResponse> deleteById(@RequestParam UUID id) {
         playerService.deleteById(id);
         PlayerResponse response = PlayerResponse.builder()
-                .message("Command successfully deleted!")
+                .message("Player successfully deleted!")
                 .statusCode(HttpStatus.OK.value())
                 .build();
 

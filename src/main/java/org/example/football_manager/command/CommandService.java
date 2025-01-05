@@ -21,10 +21,6 @@ public class CommandService {
         return CommandMapper.toDto(commandRepository.findById(id).orElseThrow(NotCommandExistByIdException::new));
     }
 
-    public boolean existsByName(String name) {
-        return commandRepository.existsByName(name);
-    }
-
     public void update(CommandDTO commandDTO) {
         commandRepository.findById(commandDTO.getId())
                 .orElseThrow(NotCommandExistByIdException::new);
