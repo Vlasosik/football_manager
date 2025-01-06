@@ -36,7 +36,7 @@ public class TransferController {
     public ResponseEntity<TransferResponse> update(@Valid @RequestBody TransferDTO transferDTO) {
         transferService.update(transferDTO);
         TransferResponse response = TransferResponse.builder()
-                .message("Command successfully update!")
+                .message("Transfer successfully update!")
                 .statusCode(HttpStatus.CREATED.value())
                 .build();
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
@@ -46,7 +46,7 @@ public class TransferController {
     public ResponseEntity<TransferResponse> deleteById(@RequestParam UUID id) {
         transferService.deleteById(id);
         TransferResponse response = TransferResponse.builder()
-                .message("Command successfully deleted!")
+                .message("Transfer successfully deleted!")
                 .statusCode(HttpStatus.OK.value())
                 .build();
 

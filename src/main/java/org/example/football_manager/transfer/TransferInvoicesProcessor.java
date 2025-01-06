@@ -10,6 +10,9 @@ import java.math.RoundingMode;
 @Component
 public class TransferInvoicesProcessor {
     public BigDecimal getCostOfTransfer(PlayerDTO playerDTO) {
+        if (playerDTO.getAge() == 0) {
+            throw new IllegalArgumentException("Age cannot be zero");
+        }
         short experienceYear = playerDTO.getExperience();
         short age = playerDTO.getAge();
         BigDecimal experienceMonths = BigDecimal.valueOf(experienceYear * 12);

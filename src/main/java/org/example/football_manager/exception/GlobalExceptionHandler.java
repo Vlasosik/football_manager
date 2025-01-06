@@ -71,6 +71,15 @@ public class GlobalExceptionHandler {
                 request.getRequestURI());
         return ResponseEntity.badRequest().body(errorResponse);
     }
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorResponse> handleWriteZeroToAgePlayer(
+            IllegalArgumentException ex, HttpServletRequest request) {
+        ErrorResponse errorResponse = buildErrorResponse(
+                HttpStatus.BAD_REQUEST,
+                Objects.requireNonNull(ex.getMessage()),
+                request.getRequestURI());
+        return ResponseEntity.badRequest().body(errorResponse);
+    }
 
     private ErrorResponse buildErrorResponse(HttpStatus status, String message, String requestURI) {
         return new ErrorResponse(LocalDateTime.now(), status.value(), message, requestURI);
